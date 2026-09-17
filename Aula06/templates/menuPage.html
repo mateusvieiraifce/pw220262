@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Menu</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='menu.css') }}">
-     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='crud.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='crud.css') }}">
+   
     {% block css %}
     {% endblock %}
 </head>
@@ -19,10 +20,13 @@
                 <span></span>
             </div>
             <ul class="menu" id="menu">
-                <li><a href="/login">Home</a></li>
-                <li><a href="/about">Sobre</a></li>
-                <li><a href="/services">Serviços</a></li>
-                <li><a href="/contact">Contato</a></li>
+                <li><a href="{{url_for('lista_usuarios')}}">Usuários</a></li>`
+                <li><a href="{{url_for('list_produto')}}">Produtos</a></li>
+                <li><a href="#">Serviços</a></li>
+                <li><a href="#">Fornecedores</a></li>
+                <li><a href="#">Contas</a></li>
+                <li><a href="#">Caixa</a></li>
+                <li><a href="#">Vendas</a></li>
             </ul>
         </div>
     </nav>
