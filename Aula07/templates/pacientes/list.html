@@ -1,0 +1,52 @@
+{% extends "menuPage.html" %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tabela.css') }}">
+{% endblock %}
+
+{% block content %}
+
+ <div class="_baixo_body" >
+     <main class="login-card" style="width: 100%;">
+        <h2> Lista de Pacientes</h2>
+         <div style="width: 80px; padding-bottom: 5px;">
+            <form action="{{url_for('cadastro_paciente')}}" method="get">
+                <button type="submit">Novo</button>
+            </form>
+         </div>
+         <table class="tabela-customizada" style="width: 100%;">
+
+            <thead>
+                <td>Nome</td>
+                <td>CPF</td>
+                <td></td>
+                <td></td>
+            </thead>
+
+            {%
+            for paciente in pacientes
+            %}
+            <tr>
+                <td>
+                    {{
+                    paciente.nome
+                    }}
+                </td>
+                <td>
+                    {{
+                    paciente.cpf
+                    }}
+                </td>
+                <td> <a href="/paciente/deletar/{{paciente.id}}"> Excluir</a> </td>
+                <td><a href="/paciente/editar/{{paciente.id}}"> Editar</a> </td>
+            </tr>
+
+
+            {% endfor %}
+
+        </table>
+        
+    </main>
+    </div>
+     
+{% endblock %}

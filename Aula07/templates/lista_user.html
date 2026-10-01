@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Usuário</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            display: grid;
+            place-items: center;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #eef2ff, #dbeafe);
+            color: #1f2937;
+        }
+
+        .login-card {
+            width: min(90%, 400px);
+            padding: 2.5rem;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 12px 35px rgba(30, 64, 175, .15);
+        }
+
+        h1 {
+            margin: 0 0 .5rem;
+            text-align: center;
+            color: #1d4ed8;
+        }
+
+        .subtitle {
+            margin: 0 0 2rem;
+            text-align: center;
+            color: #6b7280;
+        }
+
+        label {
+            display: block;
+            margin: 1rem 0 .4rem;
+            font-weight: bold;
+        }
+
+        input {
+            width: 100%;
+            padding: .85rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+
+        input:focus {
+            outline: 2px solid #93c5fd;
+            border-color: #2563eb;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 1.5rem;
+            padding: .9rem;
+            border: 0;
+            border-radius: 8px;
+            background: #2563eb;
+            color: #fff;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #1d4ed8;
+        }
+
+        .forgot {
+            display: block;
+            margin-top: 1rem;
+            text-align: center;
+            color: #2563eb;
+            text-decoration: none;
+        }
+
+        .forgot:hover {
+            text-decoration: underline;
+        }
+
+        .tabela-customizada {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .tabela-customizada th,
+        .tabela-customizada td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .tabela-customizada th {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .tabela-customizada tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .tabela-customizada tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .mensagem-destaque {
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-left: 6px solid #007bff; /* Barra lateral que dá o destaque */
+  background-color: #f0f7ff; /* Fundo suave */
+  color: #1c2d42; /* Texto escuro para bom contraste */
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mensagem-destaque strong {
+  color: #0056b3; /* Cor interna do título em destaque */
+}
+
+.alerta {
+  padding: 15px 20px;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 6px;
+  
+  /* Estilo padrão: Alerta de Atenção (Amarelo) */
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.alerta strong {
+  font-weight: 700;
+}
+
+/* Variação: Alerta de Informação (Azul) */
+.alerta-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}
+
+    </style>
+</head>
+
+<body>
+    <form action="{{url_for('salvar')}}" method="post">
+        <table class="tabela-customizada">
+
+            <thead>
+                <td>Nome</td>
+                <td>Usuário</td>
+                <td></td>
+                <td></td>
+            </thead>
+
+            {%
+            for user in usuarios
+            %}
+            <tr>
+                <td>
+                    {{
+                    user.nome
+                    }}
+                </td>
+                <td>
+                    {{
+                    user.usuario
+                    }}
+                </td>
+                <td> <a href="/usuario/deletar/{{user.id}}"> Excluir</a> </td>
+                <td><a href="/usuario/editar/{{user.id}}"> Editar</a> </td>
+            </tr>
+
+
+            {% endfor %}
+
+        </table>
+
+        {%  if msg %}
+       <div class="alerta alerta-info">
+          <strong>Informação:</strong> {{msg}}
+        </div>
+        {% endif %}
+       
+    </form>
+</body>
+
+</html>
