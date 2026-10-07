@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Calculadora de IMC</title>
+	<style>
+		* {
+			box-sizing: border-box;
+		}
+
+		body {
+			margin: 0;
+			min-height: 100vh;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			padding: 24px;
+			font-family: Arial, sans-serif;
+			background: #eaf2ff;
+		}
+
+		.card {
+			width: 100%;
+			max-width: 420px;
+			padding: 32px;
+			color: #fff;
+			background: #1769c2;
+			border-radius: 16px;
+			box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+		}
+
+		h1 {
+			margin-top: 0;
+			text-align: center;
+		}
+
+		form div {
+			margin-bottom: 18px;
+		}
+
+		label {
+			display: block;
+			margin-bottom: 6px;
+			font-weight: bold;
+		}
+
+		input {
+			width: 100%;
+			padding: 11px 14px;
+			border: none;
+			border-radius: 10px;
+			font-size: 1rem;
+		}
+
+		button {
+			width: 100%;
+			padding: 12px;
+			border: none;
+			border-radius: 10px;
+			color: #1769c2;
+			background: #fff;
+			font-size: 1rem;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		button:hover {
+			background: #eaf2ff;
+		}
+	</style>
+</head>
+<body>
+	<main class="card">
+		<h1>Calculadora de IMC</h1>
+
+		<form action="/calcular_imc" method="post">
+			<div>
+				<label for="nome">Nome:</label>
+				<input type="text" id="nome" name="nome" required value="{{nome}}">
+			</div>
+            <div>
+				<label for="peso">Peso (kg):</label>
+				<input type="number" id="peso" name="peso" min="1" step="0.1"  value="{{peso}}" required>
+			</div>
+
+			<div>
+				<label for="altura">Altura (m):</label>
+				<input type="number" id="altura" name="altura" min="0.5" step="0.01" required value="{{altura}}">
+			</div>
+
+            <div>
+				<label for="peso">IMC (kg):</label>
+				<input type="number" id="imc" name="imc" min="1" step="0.1" readonly  value="{{imc}}">
+			</div>
+
+			<button type="submit">Calcular</button>
+		</form>
+	</main>
+</body>
+</html>
