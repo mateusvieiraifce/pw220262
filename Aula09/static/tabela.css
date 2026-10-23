@@ -1,0 +1,72 @@
+ .tabela-customizada {
+            width: 100%;
+            border-collapse: collapse;
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            text-align: left;
+            background-color: #ffffff;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border: 1px solid; /* Barra superior que dá o destaque */
+        }
+
+        .tabela-customizada th,
+        .tabela-customizada td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dddddd;
+        }
+
+        .tabela-customizada th {
+            background-color: #007bff;
+            color: #ffffff;
+            font-weight: bold;
+        }
+
+        .tabela-customizada tbody tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        .tabela-customizada tbody tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .mensagem-destaque {
+  padding: 16px 20px;
+  margin: 20px 0;
+  border-left: 6px solid #007bff; /* Barra lateral que dá o destaque */
+  background-color: #f0f7ff; /* Fundo suave */
+  color: #1c2d42; /* Texto escuro para bom contraste */
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.mensagem-destaque strong {
+  color: #0056b3; /* Cor interna do título em destaque */
+}
+
+.alerta {
+  padding: 15px 20px;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  border-radius: 6px;
+  
+  /* Estilo padrão: Alerta de Atenção (Amarelo) */
+  background-color: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeeba;
+}
+
+.alerta strong {
+  font-weight: 700;
+}
+
+/* Variação: Alerta de Informação (Azul) */
+.alerta-info {
+  background-color: #d1ecf1;
+  color: #0c5460;
+  border: 1px solid #bee5eb;
+}

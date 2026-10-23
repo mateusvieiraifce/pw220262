@@ -1,0 +1,52 @@
+{% extends "menuPage.html" %}
+
+{% block css %}
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='tabela.css') }}">
+{% endblock %}
+
+{% block content %}
+    
+    <div class="_baixo_body" >
+     <main class="login-card" style="width: 100%;">
+        <h2> Lista de Usuários</h2>
+         <div style="width: 80px; padding-bottom: 5px;">
+            <form action="{{url_for('cadastro')}}" method="get">
+                <button type="submit">Novo</button>
+            </form>
+         </div>
+         <table class="tabela-customizada" style="width: 100%;">
+
+            <thead>
+                <td>Nome</td>
+                <td>Usuário</td>
+                <td></td>
+                <td></td>
+            </thead>
+
+            {%
+            for user in usuarios
+            %}
+            <tr>
+                <td>
+                    {{
+                    user.nome
+                    }}
+                </td>
+                <td>
+                    {{
+                    user.usuario
+                    }}
+                </td>
+                <td> <a href="/usuario/deletar/{{user.id}}"> Excluir</a> </td>
+                <td><a href="/usuario/editar/{{user.id}}"> Editar</a> </td>
+            </tr>
+
+
+            {% endfor %}
+
+        </table>
+        
+    </main>
+    </div>
+     
+{% endblock %}
